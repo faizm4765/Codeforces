@@ -1,24 +1,43 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int go(int n, int m, string &x, string &s){
-    
+int go(string x, string s) {
+    int cnt = 0;
 
-    return j + 1;
+    while (x.size() < s.size()) {
+        x += x;
+        cnt++;
+    }
+
+    if (x.find(s) != string::npos)
+        return cnt;
+
+    x += x;
+    cnt++;
+
+    if (x.find(s) != string::npos)
+        return cnt;
+
+    return -1;
 }
 
+
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int n, m;
-    cin >> n >> m;
+    int t;
+    cin >> t;
 
-    string x;
-    cin >> x;
+    while(t--){
+        int n, m;
+        cin >> n >> m;
 
-    string s;
-    cin >> s;
+        string x;
+        cin >> x;
 
-    cout<<go(n, m, x, s)<<endl;
+        string s;
+        cin >> s;
+
+        cout<<go(x, s)<<endl;
+    }
+
     return 0;
 }
