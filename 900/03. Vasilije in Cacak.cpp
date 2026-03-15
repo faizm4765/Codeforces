@@ -9,11 +9,11 @@ int main(){
         long long n, k, x;
         cin>>n>>k>>x;
 
-        long long min = (k * (k + 1)) / 2;
-        long long max = ((long long)n * (n + 1)) / 2;
-        long long max1 = (long long)(n - k) * (n - k + 1) / 2;
-        max = max - max1;
-        if(x > max || x < min){
+        long long minSum = (k * (k + 1)) / 2;
+        long long maxSum = ((long long)n * (n + 1)) / 2;
+        long long excludeSum = (long long)(n - k) * (n - k + 1) / 2;
+        maxSum = maxSum - excludeSum;
+        if(x > maxSum || x < minSum){
             cout<<"NO\n";
         }else{
             cout<<"YES\n";
